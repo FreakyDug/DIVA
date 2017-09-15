@@ -1,10 +1,39 @@
 language: C++
+
+matrix:
+  include:
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          packages: [ 'ninja-build', 'cmake' ]
+      env: CMAKE_BUILD_TYPE=DEBUG
+
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          packages: [ 'ninja-build', 'cmake' ]
+      env: CMAKE_BUILD_TYPE=RELEASE
+
+    - os: linux
+      compiler: clang
+      addons:
+        apt:
+          packages: [ 'ninja-build', 'cmake' ]
+      env: CMAKE_BUILD_TYPE=DEBUG
+
+    - os: linux
+      compiler: clang
+      addons:
+        apt:
+          packages: [ 'ninja-build', 'cmake' ]
+      env: CMAKE_BUILD_TYPE=RELEASE
+
+
 install: cmake
-compiler:
-  - clang
-  - gcc
 script:
   - cd DIVA
-  - cmake . -Bbuild -DCMAKE_BUILD_TYPE=Debug
+  - cmake . -Bbuild
   - cmake --build build
   - ./build/bin/unittests
