@@ -6,34 +6,40 @@ matrix:
       compiler: gcc
       addons:
         apt:
-          packages: [ 'ninja-build', 'cmake' ]
-      env: CMAKE_BUILD_TYPE=DEBUG
+          sources: [ ubuntu-toolchain-r-test ]
+          packages: [ 'ninja-build', 'cmake', 'g++-5' ]
+      env:
+        - CMAKE_BUILD_TYPE=DEBUG
+        - CXX=g++-5
 
     - os: linux
       compiler: gcc
       addons:
         apt:
-          packages: [ 'ninja-build', 'cmake' ]
-      env: CMAKE_BUILD_TYPE=RELEASE
+          sources: [ ubuntu-toolchain-r-test ]
+          packages: [ 'ninja-build', 'cmake', 'g++-5' ]
+      env:
+        - CMAKE_BUILD_TYPE=RELEASE
+        - CXX=g++-5
 
     - os: linux
       compiler: clang
       addons:
         apt:
-          packages: [ 'ninja-build', 'cmake' ]
+          packages: [ 'ninja-build', 'cmake', libc++-dev ]
       env: CMAKE_BUILD_TYPE=DEBUG
 
     - os: linux
       compiler: clang
       addons:
         apt:
-          packages: [ 'ninja-build', 'cmake' ]
+          packages: [ 'ninja-build', 'cmake', libc++-dev ]
       env: CMAKE_BUILD_TYPE=RELEASE
 
 
 install: cmake
 script:
   - cd DIVA
-  - cmake . -Bbuild
+  - cmake . -Bbuild -G Ninja
   - cmake --build build
   - ./build/bin/unittests
