@@ -1,0 +1,10 @@
+language: C++
+install: cmake
+compiler:
+  - clang
+  - gcc
+script:
+  - cd DIVA
+  - cmake . -Bbuild -DCMAKE_BUILD_TYPE=Debug
+  - cmake --build build
+  - ./build/bin/unittests
