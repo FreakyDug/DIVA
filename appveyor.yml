@@ -1,0 +1,11 @@
+os: Visual Studio 2015
+clone_folder: c:\projects\DIVA
+
+# scripts to run before build
+before_build:
+  - echo Running cmake...
+  - cd c:\projects\DIVA
+  - cmake . -Bbuild -G "Visual Studio 14 2015 Win64"
+
+build:
+  project: build\DIVA.sln
