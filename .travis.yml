@@ -3,7 +3,6 @@ language: C++
 matrix:
   include:
     - os: linux
-      compiler: gcc
       addons:
         apt:
           sources: [ ubuntu-toolchain-r-test ]
@@ -13,7 +12,6 @@ matrix:
         - CXX=g++-5
 
     - os: linux
-      compiler: gcc
       addons:
         apt:
           sources: [ ubuntu-toolchain-r-test ]
