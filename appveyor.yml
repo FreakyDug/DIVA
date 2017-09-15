@@ -1,6 +1,14 @@
 os: Visual Studio 2015
 clone_folder: c:\projects\DIVA
 
+configuration:
+  - Debug
+  - Release
+
+platform:
+  - x86
+  - x64
+
 # scripts to run before build
 before_build:
   - cd c:\projects\DIVA\DIVA
