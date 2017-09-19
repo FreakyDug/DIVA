@@ -82,9 +82,9 @@ matrix:
       addons:
         apt:
           packages:
-          - ninja-build
-          - cmake
-          - libc++-dev
+            - ninja-build
+            - cmake
+            - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=DEBUG
         - MATRIX_EVAL="CC=clang && CXX=clang++"
@@ -94,9 +94,9 @@ matrix:
       addons:
         apt:
           packages:
-          - ninja-build
-          - cmake
-          - libc++-dev
+            - ninja-build
+            - cmake
+            - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=RELEASE
         - MATRIX_EVAL="CC=clang && CXX=clang++"
@@ -110,8 +110,7 @@ matrix:
             - ninja-build
             - cmake
             - clang-4.0
-            - llvm-4.0
-            - llvm-4.0-dev
+            - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=DEBUG
         - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
@@ -125,8 +124,7 @@ matrix:
             - ninja-build
             - cmake
             - clang-4.0
-            - llvm-4.0
-            - llvm-4.0-dev
+            - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=RELEASE
         - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
@@ -140,8 +138,7 @@ matrix:
             - ninja-build
             - cmake
             - clang-5.0
-            - llvm-5.0
-            - llvm-5.0-dev
+            - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=DEBUG
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
@@ -155,8 +152,7 @@ matrix:
             - ninja-build
             - cmake
             - clang-5.0
-            - llvm-5.0
-            - llvm-5.0-dev
+            - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=RELEASE
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
