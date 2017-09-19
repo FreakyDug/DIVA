@@ -3,79 +3,111 @@ language: C++
 matrix:
   include:
     - os: linux
-      compiler: gcc
+      compiler: gcc 5
       addons:
         apt:
           sources: [ ubuntu-toolchain-r-test ]
-          packages: [ 'ninja-build', 'cmake', 'g++-5' ]
+          packages:
+            - ninja-build
+            - cmake
+            - g++-5
       env:
         - CMAKE_BUILD_TYPE=DEBUG
         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
     - os: linux
-      compiler: gcc
+      compiler: gcc 5
       addons:
         apt:
           sources: [ ubuntu-toolchain-r-test ]
-          packages: [ 'ninja-build', 'cmake', 'g++-5' ]
+          packages:
+            - ninja-build
+            - cmake
+            - g++-5
       env:
         - CMAKE_BUILD_TYPE=RELEASE
         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
     - os: linux
-      compiler: clang
+      compiler: clang 3.9
       addons:
         apt:
-          packages: [ 'ninja-build', 'cmake', libc++-dev ]
+          packages:
+          - ninja-build
+          - cmake
+          - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=DEBUG
         - MATRIX_EVAL="CC=clang && CXX=clang++"
 
     - os: linux
-      compiler: clang
+      compiler: clang 3.9
       addons:
         apt:
-          packages: [ 'ninja-build', 'cmake', libc++-dev ]
+          packages:
+          - ninja-build
+          - cmake
+          - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=RELEASE
         - MATRIX_EVAL="CC=clang && CXX=clang++"
 
     - os: linux
-      compiler: clang
+      compiler: clang 4.0
       addons:
         apt:
           sources: [ 'llvm-toolchain-trusty-4.0' ]
-          packages: [ 'ninja-build', 'cmake', clang-4.0 ]
+          packages:
+            - ninja-build
+            - cmake
+            - clang-4.0
+            - llvm-4.0
+            - llvm-4.0-dev
       env:
         - CMAKE_BUILD_TYPE=DEBUG
         - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
 
     - os: linux
-      compiler: clang
+      compiler: clang 4.0
       addons:
         apt:
           sources: [ 'llvm-toolchain-trusty-4.0' ]
-          packages: [ 'ninja-build', 'cmake', clang-4.0 ]
+          packages:
+            - ninja-build
+            - cmake
+            - clang-4.0
+            - llvm-4.0
+            - llvm-4.0-dev
       env:
         - CMAKE_BUILD_TYPE=RELEASE
         - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
 
     - os: linux
-      compiler: clang
+      compiler: clang 5.0
       addons:
         apt:
           sources: [ 'llvm-toolchain-trusty-5.0' ]
-          packages: [ 'ninja-build', 'cmake', clang-5.0 ]
+          packages:
+            - ninja-build
+            - cmake
+            - clang-5.0
+            - llvm-5.0
+            - llvm-5.0-dev
       env:
         - CMAKE_BUILD_TYPE=DEBUG
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
 
     - os: linux
-      compiler: clang
+      compiler: clang 5.0
       addons:
         apt:
           sources: [ 'llvm-toolchain-trusty-5.0' ]
-          packages: [ 'ninja-build', 'cmake', clang-5.0 ]
+          packages:
+            - ninja-build
+            - cmake
+            - clang-5.0
+            - llvm-5.0
+            - llvm-5.0-dev
       env:
         - CMAKE_BUILD_TYPE=RELEASE
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
