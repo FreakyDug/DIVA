@@ -1,14 +1,33 @@
 os: Visual Studio 2015
-clone_folder: c:\projects\DIVA
 
 configuration:
   - Debug
   - Release
 
+platform:
+  - Win32
+  - x64
+
+init:
+  - cmd: cmake --version
+  - cmd: msbuild /version
+
+clone_folder: c:\projects\DIVA
+
 # scripts to run before build
 before_build:
-  - cd c:\projects\DIVA\DIVA
-  - cmake . -Bbuild -G "Visual Studio 14 2015 Win64"
+  - cmd: cd c:\projects\DIVA\DIVA
+  - cmd: if "%platform%"=="Win32" set CMAKE_GENERATOR_NAME=Visual Studio 14 2015
+  - cmd: if "%platform%"=="x64"   set CMAKE_GENERATOR_NAME=Visual Studio 14 2015 Win64
+  - cmd: cmake . -Bbuild -G "%CMAKE_GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%configuration%
 
 build:
   project: C:\projects\DIVA\DIVA\build\DIVA.sln
+  parallel: true
+  verbosity: quiet
+
+test_script:
+  - cmd: C:\projects\DIVA\DIVA\build\bin\%configuration%\unittests.exe --gtest_output=xml:tests.xml
+
+after_test:
+  - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
