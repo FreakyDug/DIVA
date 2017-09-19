@@ -3,7 +3,7 @@ language: C++
 matrix:
   include:
     - os: linux
-      compiler: gcc 5
+      compiler: gcc-5
       addons:
         apt:
           sources: [ ubuntu-toolchain-r-test ]
@@ -15,7 +15,7 @@ matrix:
         - CMAKE_BUILD_TYPE=DEBUG
         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
     - os: linux
-      compiler: gcc 5
+      compiler: gcc-5
       addons:
         apt:
           sources: [ ubuntu-toolchain-r-test ]
@@ -28,32 +28,7 @@ matrix:
         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 
     - os: linux
-      compiler: gcc 6
-      addons:
-        apt:
-          sources: [ ubuntu-toolchain-r-test ]
-          packages:
-            - ninja-build
-            - cmake
-            - g++-6
-      env:
-        - CMAKE_BUILD_TYPE=DEBUG
-        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
-    - os: linux
-      compiler: gcc 6
-      addons:
-        apt:
-          sources: [ ubuntu-toolchain-r-test ]
-          packages:
-            - ninja-build
-            - cmake
-            - g++-6
-      env:
-        - CMAKE_BUILD_TYPE=RELEASE
-        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
-
-    - os: linux
-      compiler: gcc 7
+      compiler: gcc-7
       addons:
         apt:
           sources: [ ubuntu-toolchain-r-test ]
@@ -65,7 +40,7 @@ matrix:
         - CMAKE_BUILD_TYPE=DEBUG
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
     - os: linux
-      compiler: gcc 7
+      compiler: gcc-7
       addons:
         apt:
           sources: [ ubuntu-toolchain-r-test ]
@@ -78,7 +53,7 @@ matrix:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
     - os: linux
-      compiler: clang 3.9
+      compiler: clang-3.9
       addons:
         apt:
           packages:
@@ -90,7 +65,7 @@ matrix:
         - MATRIX_EVAL="CC=clang && CXX=clang++"
 
     - os: linux
-      compiler: clang 3.9
+      compiler: clang-3.9
       addons:
         apt:
           packages:
@@ -102,35 +77,7 @@ matrix:
         - MATRIX_EVAL="CC=clang && CXX=clang++"
 
     - os: linux
-      compiler: clang 4.0
-      addons:
-        apt:
-          sources: [ 'llvm-toolchain-trusty-4.0' ]
-          packages:
-            - ninja-build
-            - cmake
-            - clang-4.0
-            - libc++-dev
-      env:
-        - CMAKE_BUILD_TYPE=DEBUG
-        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
-
-    - os: linux
-      compiler: clang 4.0
-      addons:
-        apt:
-          sources: [ 'llvm-toolchain-trusty-4.0' ]
-          packages:
-            - ninja-build
-            - cmake
-            - clang-4.0
-            - libc++-dev
-      env:
-        - CMAKE_BUILD_TYPE=RELEASE
-        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
-
-    - os: linux
-      compiler: clang 5.0
+      compiler: clang-5.0
       addons:
         apt:
           sources: [ 'llvm-toolchain-trusty-5.0' ]
@@ -144,7 +91,7 @@ matrix:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
 
     - os: linux
-      compiler: clang 5.0
+      compiler: clang-5.0
       addons:
         apt:
           sources: [ 'llvm-toolchain-trusty-5.0' ]
