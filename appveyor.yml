@@ -1,4 +1,6 @@
-os: Visual Studio 2015
+image:
+  - Visual Studio 2015
+  - Visual Studio 2017
 
 configuration:
   - Debug
@@ -28,8 +30,9 @@ build:
   verbosity: quiet
 
 test_script:
-  - cmd: C:\projects\DIVA\DIVA\build\bin\%configuration%\unittests.exe --gtest_output=xml:tests.xml
+  - cmd: C:\projects\DIVA\DIVA\build\bin\%configuration%\unittests.exe --gtest_output=xml:unittests.xml
   - cmd: pytest C:\projects\DIVA\DIVA\SystemTests --divadir=C:\projects\DIVA\DIVA\build\bin\%configuration% --junitxml=systemtests.xml
 
 after_test:
-  - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
+  - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\unittests.xml))
+  - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\systemtests.xml))
