@@ -20,6 +20,7 @@ before_build:
   - cmd: if "%platform%"=="Win32" set CMAKE_GENERATOR_NAME=Visual Studio 14 2015
   - cmd: if "%platform%"=="x64"   set CMAKE_GENERATOR_NAME=Visual Studio 14 2015 Win64
   - cmd: cmake . -Bbuild -G "%CMAKE_GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%configuration%
+  - cmd: pip install -r SystemTests\requirements.txt
 
 build:
   project: C:\projects\DIVA\DIVA\build\DIVA.sln
@@ -28,6 +29,7 @@ build:
 
 test_script:
   - cmd: C:\projects\DIVA\DIVA\build\bin\%configuration%\unittests.exe --gtest_output=xml:tests.xml
+  - cmd: pytest C:\projects\DIVA\DIVA\SystemTests --divadir=C:\projects\DIVA\DIVA\build\bin\%configuration% --junitxml=systemtests.xml
 
 after_test:
   - ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
