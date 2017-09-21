@@ -112,7 +112,7 @@ before_install:
 
 script:
   - cd DIVA
-  - cmake . -Bbuild -G Ninja
+  - cmake . -Bbuild -G Ninja -DCMAKE_CXX_FLAGS=$CXXFLAGS
   - cat build/CMakeCache.txt
   - cmake --build build
   - ./build/bin/unittests
