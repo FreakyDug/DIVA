@@ -113,6 +113,7 @@ before_install:
 script:
   - cd DIVA
   - cmake . -Bbuild -G Ninja
+  - cat build/CMakeCache.txt
   - cmake --build build
   - ./build/bin/unittests
   - pytest SystemTests --divadir=build/bin
