@@ -62,7 +62,7 @@ matrix:
             - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=DEBUG
-        - MATRIX_EVAL="CC=clang && CXX=clang++"
+        - MATRIX_EVAL="CC=clang && CXX=clang++ && CXXFLAGS=-stdlib=libc++"
 
     - os: linux
       compiler: clang-3.9
@@ -74,7 +74,7 @@ matrix:
             - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=RELEASE
-        - MATRIX_EVAL="CC=clang && CXX=clang++"
+        - MATRIX_EVAL="CC=clang && CXX=clang++ && CXXFLAGS=-stdlib=libc++"
 
     - os: linux
       compiler: clang-5.0
@@ -88,7 +88,7 @@ matrix:
             - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=DEBUG
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && CXXFLAGS=-stdlib=libc++"
 
     - os: linux
       compiler: clang-5.0
@@ -102,7 +102,7 @@ matrix:
             - libc++-dev
       env:
         - CMAKE_BUILD_TYPE=RELEASE
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && CXXFLAGS=-stdlib=libc++"
 
 
 before_install:
