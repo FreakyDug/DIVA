@@ -107,6 +107,7 @@ matrix:
 
 before_install:
   - eval "${MATRIX_EVAL}"
+  - echo $CXXFLAGS
   - sudo pip install -r DIVA/SystemTests/requirements.txt
 
 script:
