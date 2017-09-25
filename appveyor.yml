@@ -15,6 +15,9 @@ init:
 
 clone_folder: c:\projects\DIVA
 
+install:
+  - cmd: git submodule update --init --recursive
+
 # scripts to run before build
 before_build:
   - cmd: cd c:\projects\DIVA\DIVA

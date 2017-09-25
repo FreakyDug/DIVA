@@ -12,6 +12,20 @@ Please create an [issue in Github](https://github.com/SNSystems/DIVA/issues) for
 
 Please see the [projects list](https://github.com/SNSystems/DIVA/projects) for a backlog of ideas for feature items.
 
+## Developing DIVA
+
+When you clone the repository, make sure you use --recursive, so you get the google test submodule automatically:
+
+```bash
+git clone https://github.com/SNSystems/DIVA.git --recursive
+```
+
+If the version of a submodule changes, you can update with:
+
+```bash
+git submodule update --recursive --remote
+```
+
 ## Building DIVA
 
 DIVA is built using CMake on Windows and Linux, so you will need to [install CMake first](https://cmake.org/install/). You will need version 3.2.2 or later.
